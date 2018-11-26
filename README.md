@@ -1,8 +1,8 @@
 DISCLAIMER: This application is used for demonstrative and illustrative purposes only and does not constitute an offering that has gone through regulatory review.
 
-#  Create and deploy a scoring model to predict heart failure on IBM Cloud with Watson Studio
+#  Create and deploy a scoring model to predict Employee Attrition
 
-In this Code Pattern, we will use the Automatic Model Builder on Watson Studio to build a predictive model that demonstrates a potential health care use case.
+In this Code Pattern, we will use the Automatic Model Builder on Watson Studio to build, evaluate, deploy, and consume a predictive model.
 
 When the reader has completed this Code Pattern, they will understand how to:
 
@@ -218,7 +218,7 @@ Let's create a machine learning pipeline that leverages data transformations and
 
   ![](doc/source/images/add-model-to-project.png?raw=true)
   
-2. Within the *New Model* dialog, name the model *Heart Failure Prediction Model*, select the runtime that will be used for building a data pipeline, and training.  The `Default Spark Scala 2.11` environment should be used, and will consume 1.5 capacity units per hour of training. 
+2. Within the *New Model* dialog, name the model *Employee Attrition Prediction Model*, select the runtime that will be used for building a data pipeline, and training.  The `Default Spark Scala 2.11` environment should be used, and will consume 1.5 capacity units per hour of training.
 
 Select `Manual` to define the evaluator algorithms, they type of model to train, and how to split training and validation data.
 
@@ -237,7 +237,7 @@ Select `Manual` to define the evaluator algorithms, they type of model to train,
   ![](doc/source/images/configure-amb.png?raw=true)
   
   
-  1. **Selecting a Label Column** - The Label Column is what we would like to predict. In this usecase we are trying to predict if someone is at risk of heartrate failure or not. Looking at the data from previous steps we know there's a *HEARTRATEFAILURE* column and it's represented by a string value of *Y* or *N* for each sample.  Select `HEARTRATEFAILURE`, as it's what we're trying to predict.
+  1. **Selecting a Label Column** - The Label Column is what we would like to predict. In this usecase we are trying to predict if someone is at risk of leaving the company. Looking at the data from previous steps we know there's a *HEARTRATEFAILURE* column and it's represented by a string value of *Y* or *N* for each sample.  Select `HEARTRATEFAILURE`, as it's what we're trying to predict.
   2. **Selecting Feature Columns** - The Feature Column(s), are what fields in each sample are used to make a prediction. From previous steps we identified several columns in our dataset that represent different *Features* of each sample that might influence if a patient is at risk of heartrate failure. Here the Automatic Model Builder tool will default to selecting all columns, excluding the `Label Column` of `HEARTRATEFAILURE` to use in making a prediction.
   3. **Selecting Model Type** - The Automatic Model Builder simplifies *Classification* and *Regression* tasks, where *classification* builds a model to predict a discreate class, and *Regression* builds a model to predict a continious value. Since we're trying to predict either *Y* someone is at risk of heartrate failure or *N* someone is not at risk of heartrate failure we're working on a `Binary Classification` task, where the prediction can either be 0 or 1. Based on the `Label Column` selected, the Automatic Model Builder will have already selected `Binary Classification` for use in training.
   4. **Validation Split** - Training machine learning models is an iterative process and the data used to train a model should not be used when evaluating the accuracy of a model, as data used in training is already known and has shaped how the model formed. Validation of a models accuracy depends on usage of data the model has never seen before.  This step splits up all of our data setting some asside for training, test, and eventually validation. A common division of this data is usually 60% Training, 20% Test, and 20% validation.  The Automatic Model Builder has already set these defaults.
