@@ -1,6 +1,6 @@
 DISCLAIMER: This application is used for demonstrative and illustrative purposes only and does not constitute an offering that has gone through regulatory review.
 
-#  Create and deploy a scoring model to predict Employee Attrition
+#  Create and deploy a scoring model to predict Heartrate Failure
 
 In this Code Pattern, we will use the Automatic Model Builder on Watson Studio to build, evaluate, deploy, and consume a predictive model.
 
@@ -218,7 +218,7 @@ Let's create a machine learning pipeline that leverages data transformations and
 
   ![](doc/source/images/add-model-to-project.png?raw=true)
   
-2. Within the *New Model* dialog, name the model *Employee Attrition Prediction Model*, select the runtime that will be used for building a data pipeline, and training.  The `Default Spark Scala 2.11` environment should be used, and will consume 1.5 capacity units per hour of training.
+2. Within the *New Model* dialog, name the model *Heartrate Failure Prediction Model*, select the runtime that will be used for building a data pipeline, and training.  The `Default Spark Scala 2.11` environment should be used, and will consume 1.5 capacity units per hour of training.
 
 Select `Manual` to define the evaluator algorithms, they type of model to train, and how to split training and validation data.
 
